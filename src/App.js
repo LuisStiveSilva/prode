@@ -1,23 +1,17 @@
-import React from "react";
-import Navbar from "./components/Navbar";
-import GroupTabs from "./components/GroupTabs";
-import { Container, Typography } from "@mui/material";
+import { BrowserRouter, Route, Routes } from "react-router-dom"
 
-import { theme } from "./utils/theme";
-import { ThemeProvider } from "@mui/material/styles";
+import HomePage from './pages/HomePage.js'
+import LoginPage from './pages/LoginPage.js'
+import SignUpPage from './pages/SignUpPage.js'
 
 export default function App() {
   return (
-    <ThemeProvider theme={theme}>
-      <div>
-        <Navbar />
-        <Container>
-          <Typography variant="h4" mt={1} sx={{ fontWeight: "bold" }}>
-            Tabla de posiciones
-          </Typography>
-          <GroupTabs />
-        </Container>
-      </div>
-    </ThemeProvider>
-  );
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<HomePage/>} />
+        <Route path="/login" element={<LoginPage/>} />
+        <Route path="/signup" element={<SignUpPage/>} />
+      </Routes>
+    </BrowserRouter>
+  )
 }
