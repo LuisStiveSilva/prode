@@ -1,39 +1,93 @@
-import { Grid, Paper, Avatar, TextField, Link, Button, Typography, FormControlLabel, Checkbox } from "@mui/material";
+import {
+  Grid,
+  Paper,
+  Avatar,
+  TextField,
+  Button,
+  Typography,
+  FormControlLabel,
+  Checkbox,
+} from "@mui/material";
+import { Link } from "react-router-dom";
 
 const LoginPage = () => {
-    const paperStyle = { padding: 20, height: '73vh', width: 300, margin: "20px auto" }
-    const avatarStyle = { backgroundColor: 'Primary' }
-    const btnstyle = { margin: '8px 0' }
-    const mrgnStyle = { margin: '8px 0 0 0'}
+  const paperStyle = {
+    padding: 20,
+    width: 300,
+    margin: "auto",
+  };
+  const avatarStyle = { backgroundColor: "Primary" };
 
-    return (
-        <Grid>
-            <Paper elevation={10} style={paperStyle}>
-                <Grid align='center'>
-                     <Avatar style={avatarStyle}></Avatar>
-                    <h2>Iniciar Sesión</h2>
+  return (
+    <Grid
+      container
+      justify="center"
+      alignItems="center"
+      style={{ height: "100vh", width: "100vw" }}
+    >
+      <Grid item xs={12}>
+        <Paper elevation={10} style={paperStyle}>
+          <Grid container justifyContent="center" alignItems="center">
+            <Grid item align="center">
+              <Avatar style={avatarStyle}></Avatar>
+              <h2>Iniciar Sesión</h2>
+            </Grid>
+            <form>
+              <Grid item container spacing={2}>
+                <Grid item xs={12}>
+                  <TextField
+                    label="Usuario"
+                    placeholder="Usuario"
+                    fullWidth
+                    required
+                  />
                 </Grid>
-                <TextField label='Usuario' placeholder='Usuario' fullWidth required/>
-                <TextField label='Contraseña' placeholder='Contraseña' type='password' fullWidth required style={mrgnStyle}/>
-                <FormControlLabel
-                    control={
-                    <Checkbox
-                        name="checkedB"
-                        color="primary"
-                    />
-                    }
+                <Grid item xs={12}>
+                  <TextField
+                    label="Contraseña"
+                    placeholder="Contraseña"
+                    type="password"
+                    fullWidth
+                    required
+                    autoComplete="password"
+                  />
+                </Grid>
+                <Grid item xs={12}>
+                  <FormControlLabel
+                    control={<Checkbox name="checkedB" color="primary" />}
                     label="Recuerdame"
-                 />
-                <Button type='submit' color='primary' variant="contained" style={btnstyle} fullWidth>Iniciar sesión</Button>
-                <Typography >
-                     <Link underline="none" href="#"> ¿Olvidaste tu contraseña? </Link>
-                </Typography>
-                <Typography > ¿No tienes una cuenta?
-                    <Link underline="none" href='/signup'> Registrate aquí </Link>
-                </Typography>
-            </Paper>
-        </Grid>
-    )
-}
+                  />
+                </Grid>
+                <Grid item xs={12}>
+                  <Button
+                    type="submit"
+                    color="primary"
+                    variant="contained"
+                    fullWidth
+                  >
+                    Iniciar sesión
+                  </Button>
+                </Grid>
+                <Grid item xs={12}>
+                  <Typography>
+                    <Link to="#" style={{ textDecoration: "none" }}>
+                      ¿Olvidaste tu contraseña?
+                    </Link>
+                  </Typography>
+                </Grid>
+                <Grid item container xs={12} justifyContent="space-between">
+                  <Typography>¿No tienes una cuenta?</Typography>
+                  <Link to="/signup" style={{ textDecoration: "none" }}>
+                    <Typography>Registrate aquí</Typography>
+                  </Link>
+                </Grid>
+              </Grid>
+            </form>
+          </Grid>
+        </Paper>
+      </Grid>
+    </Grid>
+  );
+};
 
-export default LoginPage
+export default LoginPage;

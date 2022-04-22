@@ -1,3 +1,4 @@
+import { Fragment } from "react";
 import Navbar from "../components/Navbar";
 import GroupTabs from "../components/GroupTabs";
 import { Container, Typography } from "@mui/material";
@@ -8,7 +9,7 @@ import { ThemeProvider } from "@mui/material/styles";
 export default function HomePage() {
   return (
     <ThemeProvider theme={theme}>
-      <div>
+      <Fragment>
         <Navbar />
         <Container>
           <Typography variant="h4" mt={1} sx={{ fontWeight: "bold" }}>
@@ -16,7 +17,7 @@ export default function HomePage() {
           </Typography>
           <GroupTabs />
         </Container>
-      </div>
+      </Fragment>
     </ThemeProvider>
   );
 }
